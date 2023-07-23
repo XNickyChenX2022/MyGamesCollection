@@ -21,7 +21,7 @@ const HeaderLogin = () => {
       </HeaderContainer>
       {OpenLogin && (
         <div className="flex basis-full flex-col items-center px-2 md:hidden z-40">
-          <HeaderLoginComponent />
+          <HeaderLoginComponent handleClick={toggleLogin} />
         </div>
       )}
     </>

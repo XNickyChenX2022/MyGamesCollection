@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useRegisterMutation } from "../slices/Users/usersApiSlice";
-import { setCredentials } from "../slices/Users/authSlice";
 const HomeScreen = () => {
   return (
-    <div className="flex justify-center items-center h-[90vh]">
-      <div className="flex rounded w-4/6 h-[40%] bg-gray-600 p-3 my-auto mx-auto flex-col justify-evenly">
+    <div className="flex flex-grow flex-1 justify-center items-center">
+      <div className="flex rounded w-4/6 bg-gray-600 p-5 my-auto mx-auto flex-col justify-evenly h-[300px] md:w-[500px]">
         <p className="text-white whitespace normal text-center text-ellipsis">
           Please login or register for a new account before using our service
         </p>

@@ -16,6 +16,7 @@ import LoginScreen from "./screens/LoginScreen.jsx";
 import RegisterScreen from "./screens/RegisterScreen.jsx";
 import ProfileScreen from "./screens/ProfileScreen";
 import SearchScreen from "./screens/SearchScreen";
+import GamesScreen from "./screens/GamesScreen";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="" element={<PrivateRoute />}>
         <Route exact strict path="/profile" element={<ProfileScreen />} />
         <Route exact strict path="/search" element={<SearchScreen />} />
+        <Route exact strict path="/games" element={<GamesScreen />} />
       </Route>
     </Route>
   )

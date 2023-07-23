@@ -51,7 +51,6 @@ const ProfileScreen = () => {
       <div className="font-semibold text-center text-2xl text-white mt-5">
         Update
       </div>
-
       <form className="flex flex-col flex-1 justify-evenly content-center text-white mb-2">
         <InputContainer
           label="Username"

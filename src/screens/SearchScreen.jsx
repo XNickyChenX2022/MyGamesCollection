@@ -1,51 +1,73 @@
-import React, { useState } from "react";
-import { useSearchGamesMutation } from "../slices/Search/SearchApiSlice";
+import React, { useEffect, useState } from "react";
+import {
+  useSearchGamesMutation,
+  useGetAllGamesQuery,
+} from "../slices/Games/gamesApiSlice";
 import { toast } from "react-toastify";
 import { FaSearch } from "react-icons/fa";
-import { Spinner } from "@material-tailwind/react";
+import Loading from "../components/Loading";
 import SearchCards from "../components/Cards/SearchCards";
 const SearchScreen = () => {
   const [searchField, setSearchField] = useState("");
-  const [previousSearch, setPreviousSearch] = useState("");
   const [searchGames, { data, isLoading }] = useSearchGamesMutation();
+  const { data: games } = useGetAllGamesQuery();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (previousSearch === searchField || searchField === null) {
+    if (searchField === "") {
       return;
     }
     try {
       await searchGames({ search: searchField }).unwrap();
-      setPreviousSearch(searchField);
       setSearchField("");
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
   };
-  {
-    data && console.log(data[0]);
-  }
+  useEffect(() => {
+    if (data && data.length === 24) {
+      toast.error(
+        "Please refine your search. Queries are limited to 24 games per query"
+      );
+    }
+  }, [data]);
+  const checkAdded = (_id) => {
+    if (!games || !_id) return false;
+    for (let i = 0; i < games.length; i++) {
+      if (_id === games[i].game._id) {
+        return true;
+      }
+    }
+    return false;
+  };
   return (
     <>
-      <div className="w-11/12 sm:w-11/12 py-6 px-10 my-auto mx-auto flex flex-col mt-20">
-        <form className="flex justify-center" onSubmit={handleSubmit}>
+      <div className="py-6 px-10 lg:px-8 xl:px-10 flex flex-col flex-1 mt-5">
+        <form className="flex justify-center mb-5" onSubmit={handleSubmit}>
           <div className="flex bg-white rounded justify-center align-middle">
             <input
-              className="outline-none bg-transparent"
+              className="outline-none bg-transparent pl-1 md:w-[400px]"
               value={searchField}
+              spellCheck="false"
               onChange={(e) => setSearchField(e.target.value)}
             />
-            <FaSearch className="" type="submit" />
+            <div className="flex-1 items-center pl-1" onClick={handleSubmit}>
+              <FaSearch className="w-6 h-6 py-1 cursor-pointer" type="submit" />
+            </div>
           </div>
         </form>
-        {isLoading && <Spinner className="h-48 w-48 text-white" />}
-        {data &&
-          data.map((card) => (
-            <SearchCards
-              key={card.id}
-              cover={card.cover.image_id}
-              name={card.name}
-            />
-          ))}
+        {isLoading && <Loading />}
+        <div className="flex flex-wrap justify-center lg:justify-normal">
+          {data &&
+            data.map((card) => (
+              <SearchCards
+                key={card._id}
+                _id={card._id}
+                cover={card.cover.image_id}
+                name={card.name}
+                added={checkAdded(card._id)}
+              />
+            ))}
+        </div>
       </div>
     </>
   );

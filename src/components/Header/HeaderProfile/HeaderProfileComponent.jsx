@@ -6,7 +6,7 @@ import { logout } from "../../../slices/Users/authSlice";
 import { useDispatch } from "react-redux";
 import HeaderLink from "../HeaderComponents/HeaderLinks";
 
-const HeaderProfileComponent = () => {
+const HeaderProfileComponent = ({ handleClick }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [logoutApiCall] = useLogoutMutation();
@@ -24,10 +24,26 @@ const HeaderProfileComponent = () => {
     <>
       <div className="rounded absolute z-30 mt-6 w-[92px] shadow-sm bg-gray-700">
         <div className="flex flex-col">
-          <HeaderLink title="Search" route="/search" />
-          <HeaderLink title="My Games" route="/games" />
-          <HeaderLink title="Friends" route="/friends" />
-          <HeaderLink title="My Profile" route="/profile" />
+          <HeaderLink
+            title="Search"
+            route="/search"
+            handleClick={handleClick}
+          />
+          <HeaderLink
+            title="My Games"
+            route="/games"
+            handleClick={handleClick}
+          />
+          <HeaderLink
+            title="Friends"
+            route="/friends"
+            handleClick={handleClick}
+          />
+          <HeaderLink
+            title="My Profile"
+            route="/profile"
+            handleClick={handleClick}
+          />
           <NavLink
             onClick={logoutHandler}
             className="px-2 text-white hover:text-gray-400"

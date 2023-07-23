@@ -17,7 +17,7 @@ const HeaderProfile = () => {
           <div className="text-white">{userInfo.username}</div>
           <FaAngleDown className="text-white self-center" />
         </div>
-        {OpenProfile && <HeaderProfileComponent />}
+        {OpenProfile && <HeaderProfileComponent handleClick={toggleProfile} />}
       </div>
     </HeaderContainer>
   );

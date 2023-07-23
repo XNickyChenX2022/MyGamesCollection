@@ -1,10 +1,14 @@
 import React from "react";
 import HeaderLink from "../HeaderComponents/HeaderLinks";
-const HeaderLoginComponent = () => {
+const HeaderLoginComponent = ({ handleClick }) => {
   return (
     <>
-      <HeaderLink route="/login" title="Login" />
-      <HeaderLink route="/register" title="Register" />
+      <HeaderLink route="/login" title="Login" handleClick={handleClick} />
+      <HeaderLink
+        route="/register"
+        title="Register"
+        handleClick={handleClick}
+      />
     </>
   );
 };
