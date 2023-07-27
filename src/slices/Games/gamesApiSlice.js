@@ -54,8 +54,67 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
               "getAllGames",
               undefined,
               (draft) => {
-                console.log(JSON.parse(JSON.stringify(draft)));
+                // console.log(JSON.parse(JSON.stringify(draft)));
                 return draft?.filter((games) => games?.game?._id !== args._id);
+              }
+            )
+          );
+        } catch (error) {
+          console.log(error);
+          dispatch(gamesApiSlice.util.invalidateTags(["Games"]));
+        }
+      },
+    }),
+    rateGame: builder.mutation({
+      query: (data) => ({
+        url: `${BASE_URL}/rate`,
+        method: "PUT",
+        body: data,
+      }),
+
+      async onQueryStarted(args, { dispatch, queryFulfilled }) {
+        try {
+          const { data: rating } = await queryFulfilled;
+          dispatch(
+            gamesApiSlice.util.updateQueryData(
+              "getAllGames",
+              undefined,
+              (draft) => {
+                // console.log(JSON.parse(JSON.stringify(draft)));
+                let gameReview = draft?.find(
+                  (draftItem) => draftItem?._id === args?._id
+                );
+                gameReview.rating = rating;
+                // console.log(JSON.parse(JSON.stringify(gameRating)));
+              }
+            )
+          );
+        } catch (error) {
+          console.log(error);
+          dispatch(gamesApiSlice.util.invalidateTags(["Games"]));
+        }
+      },
+    }),
+    reviewGame: builder.mutation({
+      query: (data) => ({
+        url: `${BASE_URL}/review`,
+        method: "PUT",
+        body: data,
+      }),
+      async onQueryStarted(args, { dispatch, queryFulfilled }) {
+        try {
+          const { data: newReview } = await queryFulfilled;
+          console.log(newReview);
+          dispatch(
+            gamesApiSlice.util.updateQueryData(
+              "getAllGames",
+              undefined,
+              (draft) => {
+                let gameReview = draft?.find(
+                  (draftItem) => draftItem?._id === args?._id
+                );
+                console.log(JSON.parse(JSON.stringify(gameReview)));
+                gameReview.review = newReview;
               }
             )
           );
@@ -73,4 +132,6 @@ export const {
   useGetAllGamesQuery,
   useAddGameMutation,
   useRemoveGameMutation,
+  useRateGameMutation,
+  useReviewGameMutation,
 } = gamesApiSlice;

@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderLink from "../HeaderComponents/HeaderLinks";
+import HeaderLink from "../components/HeaderLinks";
 const HeaderLoginComponent = ({ handleClick }) => {
   return (
     <>

@@ -11,6 +11,7 @@ const InputContainer = ({ label, type, placeholder, value, onChange }) => {
     <div className="flex flex-col">
       <label className="pb-2">{label}</label>
       <input
+        autocomplete="off"
         type={type}
         placeholder={placeholder}
         value={value}

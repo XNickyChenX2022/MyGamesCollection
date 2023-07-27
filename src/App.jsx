@@ -7,11 +7,11 @@ function App() {
   const { userInfo } = useSelector((state) => state.auth);
 
   return (
-    <div className="bg-[#121212] w-screen bg-center bg-fixed h-full min-h-screen flex flex-col overflow-x-hidden">
+    <div className="bg-[#121212] w-screen bg-center bg-fixed h-full min-h-screen flex flex-col">
       <Header />
       <ToastContainer />
       <div
-        className={`container mx-auto flex flex-grow md:static overflow-x-hidden ${
+        className={`w-screen overflow-x-hidden overflow-y-auto min-w-full container mx-auto flex flex-grow md:static justify-center ${
           userInfo ? "" : "absolute bottom-0 md:static"
         }`}
       >

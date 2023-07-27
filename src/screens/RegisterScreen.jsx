@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FormContainer from "../components/Forms/FormContainer";
+import FormContainer from "../components/forms/FormContainer";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useRegisterMutation } from "../slices/Users/usersApiSlice";
@@ -53,6 +53,7 @@ const RegisterScreen = () => {
       </div>
       <form className="flex flex-col flex-1 justify-evenly content-center text-white mb-5">
         <input
+          autocomplete="off"
           type="text"
           placeholder="Username"
           value={username}
@@ -60,6 +61,7 @@ const RegisterScreen = () => {
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <input
+          autocomplete="do-not-autofill"
           type="email"
           placeholder="Email"
           value={email}

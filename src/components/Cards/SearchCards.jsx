@@ -4,9 +4,7 @@ import {
   useRemoveGameMutation,
 } from "../../slices/Games/gamesApiSlice";
 import { toast } from "react-toastify";
-const image_url = (cover) => {
-  return `https://images.igdb.com/igdb/image/upload/t_1080p_2x/${cover}.jpg`;
-};
+import Image from "../Image";
 
 const SearchCards = ({ _id, cover, name, added }) => {
   const [add, setAdd] = useState(added);
@@ -33,7 +31,7 @@ const SearchCards = ({ _id, cover, name, added }) => {
   return (
     <div className="text-white bg-gray-600 w-[240px] flex flex-col">
       <div className="text-center h-[48px]">{name}</div>
-      <img className="w-[240px] h-[320px] mx-auto" src={image_url(cover)} />
+      <Image image_id={cover} />
       {Adding ? (
         <button className="text-white h-[48px] flex-grow">
           Currently Adding

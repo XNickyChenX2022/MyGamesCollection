@@ -6,10 +6,12 @@ import {
 import { toast } from "react-toastify";
 import { FaSearch } from "react-icons/fa";
 import Loading from "../components/Loading";
-import SearchCards from "../components/Cards/SearchCards";
+import SearchCards from "../components/cards/SearchCards";
+import GamesContainer from "../components/GamesContainer";
 const SearchScreen = () => {
   const [searchField, setSearchField] = useState("");
-  const [searchGames, { data, isLoading }] = useSearchGamesMutation();
+  const [searchGames, { data: searchData, isLoading: searchLoading }] =
+    useSearchGamesMutation();
   const { data: games } = useGetAllGamesQuery();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,12 +26,12 @@ const SearchScreen = () => {
     }
   };
   useEffect(() => {
-    if (data && data.length === 24) {
+    if (searchData && searchData.length === 20) {
       toast.error(
-        "Please refine your search. Queries are limited to 24 games per query"
+        "Please refine your search. Queries are limited to 20 games per query"
       );
     }
-  }, [data]);
+  }, [searchData]);
   const checkAdded = (_id) => {
     if (!games || !_id) return false;
     for (let i = 0; i < games.length; i++) {
@@ -41,11 +43,11 @@ const SearchScreen = () => {
   };
   return (
     <>
-      <div className="py-6 px-10 lg:px-8 xl:px-10 flex flex-col flex-1 mt-5">
+      <GamesContainer>
         <form className="flex justify-center mb-5" onSubmit={handleSubmit}>
-          <div className="flex bg-white rounded justify-center align-middle">
+          <div className="flex bg-white rounded justify-center align-middle w-[240px]">
             <input
-              className="outline-none bg-transparent pl-1 md:w-[400px]"
+              className="outline-none bg-transparent pl-1 w-[212px] md:w-[400px]"
               value={searchField}
               spellCheck="false"
               onChange={(e) => setSearchField(e.target.value)}
@@ -55,20 +57,20 @@ const SearchScreen = () => {
             </div>
           </div>
         </form>
-        {isLoading && <Loading />}
-        <div className="flex flex-wrap justify-center lg:justify-normal">
-          {data &&
-            data.map((card) => (
+        {searchLoading && <Loading />}
+        <div className="flex flex-wrap w-[240px] sm:w-[480px] md:w-[720px] lg:w-[960px] xl:w-[1200px]">
+          {searchData &&
+            searchData.map((game) => (
               <SearchCards
-                key={card._id}
-                _id={card._id}
-                cover={card.cover.image_id}
-                name={card.name}
-                added={checkAdded(card._id)}
+                key={game._id}
+                _id={game._id}
+                cover={game.cover.image_id}
+                name={game.name}
+                added={checkAdded(game._id)}
               />
             ))}
         </div>
-      </div>
+      </GamesContainer>
     </>
   );
 };

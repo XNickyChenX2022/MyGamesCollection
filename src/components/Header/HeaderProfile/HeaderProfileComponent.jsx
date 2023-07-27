@@ -4,7 +4,7 @@ import { useLogoutMutation } from "../../../slices/Users/usersApiSlice";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../../../slices/Users/authSlice";
 import { useDispatch } from "react-redux";
-import HeaderLink from "../HeaderComponents/HeaderLinks";
+import HeaderLink from "../components/HeaderLinks";
 
 const HeaderProfileComponent = ({ handleClick }) => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HeaderLoginComponent from "./HeaderLoginComponent";
 import { FaBars } from "react-icons/fa";
-import HeaderContainer from "../HeaderComponents/HeaderContainer";
+import HeaderContainer from "../components/HeaderContainer";
 const HeaderLogin = () => {
   const [OpenLogin, setOpenLogin] = useState(false);
   const toggleLogin = () => {

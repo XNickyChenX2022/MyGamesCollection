@@ -1,21 +1,27 @@
-import react from "react";
-const image_url = (cover) => {
-  return `https://images.igdb.com/igdb/image/upload/t_1080p_2x/${cover}.jpg`;
-};
-const GameCards = ({ rating, comment, gameInfo }) => {
-  console.log(gameInfo);
+import react, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Image from "../Image";
+
+const GameCards = ({ _id, rating, review, gameInfo }) => {
+  // const [mode, setMode] = useEffect("game");
+  const { userInfo } = useSelector((state) => state.auth);
   return (
-    <div className="text-white bg-gray-600 w-[240px] flex flex-col">
-      <div className="text-center h-[48px]"></div>
-      {rating}
-      <img
-        className="w-[240px] h-[320px] mx-auto"
-        src={image_url(gameInfo.cover.image_id)}
-      />
-      <button type="button" className={`flex-grow text-white h-[48px] `}>
-        Rate and comment
-      </button>
+    // <div className="flex flex-1 md:5px">
+    <div className="text-white bg-[#121212] w-[244px] flex flex-col border-[3px] border-[#121212] outline-none">
+      <div className="text-center h-[48px] overflow-hidden rounded-t-md bg-gray-600">
+        {gameInfo.name}
+      </div>
+      <Image image_id={gameInfo.cover.image_id} />
+      <div className="p-1 bg-gray-600"> rating: {rating ? rating : "None"}</div>
+      <Link
+        to={`/games/${userInfo.username}/${_id}`}
+        className="flex-grow text-blue-800 h-[48px] bg-orange-400 flex items-center justify-center rounded-b-md font-semibold"
+      >
+        Make Review
+      </Link>
     </div>
+    // </div>
   );
 };
 
