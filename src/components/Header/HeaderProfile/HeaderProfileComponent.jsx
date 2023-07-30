@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { useLogoutMutation } from "../../../slices/Users/usersApiSlice";
+import { useLogoutMutation } from "../../../slices/usersApiSlice";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../../../slices/Users/authSlice";
+import { logout } from "../../../slices/authSlice";
 import { useDispatch } from "react-redux";
 import HeaderLink from "../components/HeaderLinks";
 
@@ -15,7 +15,6 @@ const HeaderProfileComponent = ({ handleClick }) => {
       await logoutApiCall().unwrap();
       dispatch(logout());
       navigate("/login");
-      console.log("working");
     } catch (error) {
       console.log(error);
     }

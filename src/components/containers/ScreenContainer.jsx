@@ -1,6 +1,6 @@
 import React from "react";
 
-const GamesContainer = ({ children }) => {
+const ScreenContainer = ({ children }) => {
   return (
     <div className="py-6 mx-auto items-center flex flex-col mt-5">
       {children}
@@ -8,4 +8,4 @@ const GamesContainer = ({ children }) => {
   );
 };
 
-export default GamesContainer;
+export default ScreenContainer;

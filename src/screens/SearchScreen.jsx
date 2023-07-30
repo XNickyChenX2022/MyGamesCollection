@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import {
   useSearchGamesMutation,
   useGetAllGamesQuery,
-} from "../slices/Games/gamesApiSlice";
+} from "../slices/gamesApiSlice";
 import { toast } from "react-toastify";
-import { FaSearch } from "react-icons/fa";
 import Loading from "../components/Loading";
 import SearchCards from "../components/cards/SearchCards";
-import GamesContainer from "../components/GamesContainer";
+import ScreenContainer from "../components/containers/ScreenContainer";
+import Search from "../components/search/Search";
 const SearchScreen = () => {
   const [searchField, setSearchField] = useState("");
   const [searchGames, { data: searchData, isLoading: searchLoading }] =
@@ -43,20 +43,12 @@ const SearchScreen = () => {
   };
   return (
     <>
-      <GamesContainer>
-        <form className="flex justify-center mb-5" onSubmit={handleSubmit}>
-          <div className="flex bg-white rounded justify-center align-middle w-[240px]">
-            <input
-              className="outline-none bg-transparent pl-1 w-[212px] md:w-[400px]"
-              value={searchField}
-              spellCheck="false"
-              onChange={(e) => setSearchField(e.target.value)}
-            />
-            <div className="flex-1 items-center pl-1" onClick={handleSubmit}>
-              <FaSearch className="w-6 h-6 py-1 cursor-pointer" type="submit" />
-            </div>
-          </div>
-        </form>
+      <ScreenContainer>
+        <Search
+          handleSubmit={handleSubmit}
+          searchField={searchField}
+          setSearchField={setSearchField}
+        />
         {searchLoading && <Loading />}
         <div className="flex flex-wrap w-[240px] sm:w-[480px] md:w-[720px] lg:w-[960px] xl:w-[1200px]">
           {searchData &&
@@ -70,7 +62,7 @@ const SearchScreen = () => {
               />
             ))}
         </div>
-      </GamesContainer>
+      </ScreenContainer>
     </>
   );
 };

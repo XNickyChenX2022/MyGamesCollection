@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Image from "../Image";
 
-const GameCards = ({ _id, rating, review, gameInfo }) => {
+const GameCards = ({ _id, rating, gameInfo }) => {
   // const [mode, setMode] = useEffect("game");
   const { userInfo } = useSelector((state) => state.auth);
   return (
@@ -15,7 +15,7 @@ const GameCards = ({ _id, rating, review, gameInfo }) => {
       <Image image_id={gameInfo.cover.image_id} />
       <div className="p-1 bg-gray-600"> rating: {rating ? rating : "None"}</div>
       <Link
-        to={`/games/${userInfo.username}/${_id}`}
+        to={`${userInfo.username}/${_id}`}
         className="flex-grow text-blue-800 h-[48px] bg-orange-400 flex items-center justify-center rounded-b-md font-semibold"
       >
         Make Review

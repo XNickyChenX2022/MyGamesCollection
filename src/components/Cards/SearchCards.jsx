@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   useAddGameMutation,
   useRemoveGameMutation,
-} from "../../slices/Games/gamesApiSlice";
+} from "../../slices/gamesApiSlice";
 import { toast } from "react-toastify";
 import Image from "../Image";
 

@@ -19,6 +19,9 @@ import SearchScreen from "./screens/SearchScreen";
 import GamesScreen from "./screens/GamesScreen";
 import PrivateRatingRoute from "./components/Private Routes/PrivateRatingRoute";
 import ReviewScreen from "./screens/ReviewScreen";
+import FriendScreen from "./screens/FriendScreen";
+import FriendGamesScreen from "./screens/FriendGamesScreen";
+import PrivateFriendRoutes from "./components/private routes/PrivateFriendRoutes";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -30,11 +33,22 @@ const router = createBrowserRouter(
       <Route path="/" element={<PrivateUserRoute />}>
         <Route exact strict path="/profile" element={<ProfileScreen />} />
         <Route exact strict path="/search" element={<SearchScreen />} />
-        <Route exact strict path="/games" element={<GamesScreen />} />
+        <Route path="/games">
+          <Route index={true} element={<GamesScreen />} />
+          <Route path=":username" element={<PrivateRatingRoute />}>
+            <Route path=":_id" element={<ReviewScreen />} />
+          </Route>
+        </Route>
+        <Route path="/friends">
+          <Route index={true} element={<FriendScreen />} />
+          <Route path=":username" element={<PrivateFriendRoutes />}>
+            <Route path="" element={<FriendGamesScreen />} />
+          </Route>
+        </Route>
       </Route>
-      <Route path="/games/:username" element={<PrivateRatingRoute />}>
+      {/* <Route path="/games/:username" element={<PrivateRatingRoute />}>
         <Route exact strict path=":_id" element={<ReviewScreen />}></Route>
-      </Route>
+      </Route> */}
     </Route>
   )
 );

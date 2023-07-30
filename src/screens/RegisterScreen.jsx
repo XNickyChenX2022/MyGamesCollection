@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import FormContainer from "../components/forms/FormContainer";
+import FormContainer from "../components/containers/FormContainer";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useRegisterMutation } from "../slices/Users/usersApiSlice";
-import { setCredentials } from "../slices/Users/authSlice";
+import { useRegisterMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
 const RegisterScreen = () => {
   const [username, setUsername] = useState("");
@@ -51,9 +51,12 @@ const RegisterScreen = () => {
       <div className="font-semibold text-center text-2xl text-white mt-10">
         Register
       </div>
-      <form className="flex flex-col flex-1 justify-evenly content-center text-white mb-5">
+      <form
+        spellCheck="false"
+        className="flex flex-col flex-1 justify-evenly content-center text-white mb-5"
+      >
         <input
-          autocomplete="off"
+          autoComplete="off"
           type="text"
           placeholder="Username"
           value={username}
@@ -61,7 +64,7 @@ const RegisterScreen = () => {
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <input
-          autocomplete="do-not-autofill"
+          autoComplete="do-not-autofill"
           type="email"
           placeholder="Email"
           value={email}

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import FormContainer from "../components/forms/FormContainer";
+import FormContainer from "../components/containers/FormContainer";
 import { useDispatch, useSelector } from "react-redux";
-import { setCredentials } from "../slices/Users/authSlice";
+import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
-import { useUpdateUserMutation } from "../slices/Users/usersApiSlice";
-import InputContainer from "../components/forms/InputContainer";
+import { useUpdateUserMutation } from "../slices/usersApiSlice";
+import InputContainer from "../components/containers/InputContainer";
 
 const ProfileScreen = () => {
   const [username, setUsername] = useState("");

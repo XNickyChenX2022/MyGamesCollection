@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import FormContainer from "../components/forms/FormContainer";
+import FormContainer from "../components/containers/FormContainer";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useLoginMutation } from "../slices/Users/usersApiSlice";
-import { setCredentials } from "../slices/Users/authSlice";
+import { useLoginMutation } from "../slices/usersApiSlice";
+import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +34,10 @@ const LoginScreen = () => {
       <div className="font-semibold text-center text-2xl text-white mt-10">
         Login
       </div>
-      <form className="flex flex-col flex-1 justify-evenly content-center mb-5">
+      <form
+        spellCheck="false"
+        className="flex flex-col flex-1 justify-evenly content-center mb-5"
+      >
         <input
           autoComplete="do-not-autofill"
           type="email"

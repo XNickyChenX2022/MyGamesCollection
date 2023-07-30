@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { FaEdit, FaSave } from "react-icons/fa";
 import { ImCancelCircle } from "react-icons/im";
-import { useReviewGameMutation } from "../../slices/Games/gamesApiSlice";
+import { useReviewGameMutation } from "../../slices/gamesApiSlice";
 import { toast } from "react-toastify";
 const Review = ({ gameReview }) => {
   const [toggleReview, setToggleReview] = useState(false);
   const [textareaValue, setTextareaValue] = useState(gameReview.review);
-  console.log(textareaValue);
   const [reviewGame] = useReviewGameMutation();
   const handleToggleReview = (e) => {
     e.preventDefault();
@@ -16,8 +15,6 @@ const Review = ({ gameReview }) => {
     if (e.key == "Tab") {
       e.preventDefault();
       const { selectionStart, selectionEnd } = e.target;
-
-      // set textarea value to: text before caret + tab + text after caret
       const newValue =
         textareaValue.substring(0, selectionStart) +
         "\t" +
@@ -49,7 +46,7 @@ const Review = ({ gameReview }) => {
             <ImCancelCircle
               className="text-white text-3xl w-8 h-8 p-1 cursor-pointer hover:text-blue-500"
               onClick={handleToggleReview}
-            />{" "}
+            />
           </div>
         ) : (
           <FaEdit
@@ -65,12 +62,12 @@ const Review = ({ gameReview }) => {
             value={textareaValue}
             onChange={(e) => setTextareaValue(e.target.value)}
             onKeyDown={handleTab}
-            className="resize-none scrollbar-small md:w-[360px] md:h-[400px] w-[240px] h-[280px] p-1 outline-none rounded bg-gray-400 border-2 border-gray-500"
+            className="resize-none scrollbar-small md:w-[360px] md:h-[430px] w-[240px] h-[320px] p-1 outline-none rounded bg-gray-400 border-2 border-gray-500"
           />
         </>
       ) : (
         <>
-          <pre className="font-sans scrollbar-small md:w-[360px] md:h-[400px] w-[240px] h-[280px] p-1 whitespace-break-spaces overflow-y-auto overflow-x-hidden break-words text-white justify-center">
+          <pre className="font-sans scrollbar-small md:w-[360px] md:h-[430px] w-[240px] h-[320px] p-1 whitespace-break-spaces overflow-y-auto overflow-x-hidden break-words text-white justify-center">
             {gameReview.review}
           </pre>
         </>
