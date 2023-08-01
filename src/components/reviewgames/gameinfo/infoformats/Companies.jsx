@@ -1,6 +1,6 @@
 import React from "react";
 import InfoContainer from "../components/InfoContainer";
-import { capitalize, formatCompanies } from "../utils/Utils";
+import { capitalize, formatCompanies } from "../../../../utils/Utils";
 const Companies = ({ info, type }) => {
   return (
     <InfoContainer>

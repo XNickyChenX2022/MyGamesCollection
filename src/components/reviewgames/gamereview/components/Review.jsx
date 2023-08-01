@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaEdit, FaSave } from "react-icons/fa";
 import { ImCancelCircle } from "react-icons/im";
-import { useReviewGameMutation } from "../../slices/gamesApiSlice";
+import { useReviewGameMutation } from "../../../../slices/gamesApiSlice";
 import { toast } from "react-toastify";
 const Review = ({ gameReview }) => {
   const [toggleReview, setToggleReview] = useState(false);
@@ -34,7 +34,7 @@ const Review = ({ gameReview }) => {
   return (
     <>
       <div className="flex justify-between">
-        <div className="text-center font-bold text-white text-xl bg-gray-600">
+        <div className="items-center flex justify-center text-white bg-gray-600">
           Review
         </div>
         {toggleReview ? (
@@ -62,12 +62,12 @@ const Review = ({ gameReview }) => {
             value={textareaValue}
             onChange={(e) => setTextareaValue(e.target.value)}
             onKeyDown={handleTab}
-            className="resize-none scrollbar-small md:w-[360px] md:h-[430px] w-[240px] h-[320px] p-1 outline-none rounded bg-gray-400 border-2 border-gray-500"
+            className="resize-none scrollbar-small md:w-[360px] md:h-[416px] w-[240px] h-[260px] p-1 outline-none rounded bg-gray-400 border-2 border-gray-500"
           />
         </>
       ) : (
         <>
-          <pre className="font-sans scrollbar-small md:w-[360px] md:h-[430px] w-[240px] h-[320px] p-1 whitespace-break-spaces overflow-y-auto overflow-x-hidden break-words text-white justify-center">
+          <pre className="font-sans scrollbar-small md:w-[360px] md:h-[416px]  w-[240px] h-[260px] p-1 whitespace-break-spaces overflow-y-auto overflow-x-hidden break-words text-white justify-center">
             {gameReview.review}
           </pre>
         </>

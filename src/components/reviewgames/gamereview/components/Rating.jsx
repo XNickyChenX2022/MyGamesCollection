@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { useRateGameMutation } from "../../slices/gamesApiSlice";
+import { useRateGameMutation } from "../../../../slices/gamesApiSlice";
 
 const Rating = ({ gameReview }) => {
   const [rating, setRating] = useState("");
   const [rateGame] = useRateGameMutation();
   const handleInputChange = (e) => {
     const { value } = e.target;
-    // (e.target.value.length === 0 && e.key === ".") ||
-    console.log(value, isNaN(value));
     if (isNaN(value)) {
       return;
     }
-
     if (value === null || value === "") {
       setRating("");
       return;
@@ -45,19 +42,14 @@ const Rating = ({ gameReview }) => {
     if (
       ["e", "E", "+", "-"].includes(e.key) ||
       (e.target.value.length === 0 && e.key === ".")
-      // (e.target.value.length > 2 && e.target.value != "10.")
     ) {
-      console.log(e.target.value.length);
       e.preventDefault();
     }
   };
   return (
     <>
-      <div className="text-center font-bold text-white text-xl bg-gray-600 py-2">
-        {"Rating"}
-      </div>
       <div className="flex justify-between">
-        <div className="text-white">
+        <div className="text-white flex justify-center items-center">
           Rating: {gameReview.rating ? gameReview.rating : "None"}
         </div>
         <form onSubmit={handleRating} className="flex">

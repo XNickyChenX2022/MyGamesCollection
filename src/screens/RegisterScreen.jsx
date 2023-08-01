@@ -16,7 +16,7 @@ const RegisterScreen = () => {
   const [register] = useRegisterMutation();
   useEffect(() => {
     if (userInfo) {
-      navigate("/");
+      navigate("/home");
     }
   }, [navigate, userInfo]);
   const handleSubmit = async (e) => {
@@ -40,7 +40,8 @@ const RegisterScreen = () => {
           password,
         }).unwrap();
         dispatch(setCredentials({ ...res }));
-        navigate("/");
+        console.log("this");
+        navigate("/home");
       } catch (error) {
         toast.error(error);
       }
@@ -74,8 +75,8 @@ const RegisterScreen = () => {
         <input
           type="password"
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
           value={password}
+          onChange={(e) => setPassword(e.target.value)}
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <input

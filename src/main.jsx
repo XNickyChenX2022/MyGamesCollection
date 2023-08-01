@@ -10,29 +10,31 @@ import store from "./store";
 import { Provider } from "react-redux";
 import App from "./App.jsx";
 import "./index.css";
-import PrivateUserRoute from "./components/Private Routes/PrivateUserRoute";
-import HomeScreen from "./screens/HomeScreen.jsx";
-import LoginScreen from "./screens/LoginScreen.jsx";
-import RegisterScreen from "./screens/RegisterScreen.jsx";
+import AuthScreen from "./screens/AuthScreen";
+import HomeScreen from "./screens/HomeScreen";
+import PrivateUserRoute from "./components/privateroutes/PrivateUserRoute";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import SearchScreen from "./screens/SearchScreen";
 import GamesScreen from "./screens/GamesScreen";
-import PrivateRatingRoute from "./components/Private Routes/PrivateRatingRoute";
+import PrivateRatingRoute from "./components/privateroutes/PrivateRatingRoute";
 import ReviewScreen from "./screens/ReviewScreen";
 import FriendScreen from "./screens/FriendScreen";
 import FriendGamesScreen from "./screens/FriendGamesScreen";
-import PrivateFriendRoutes from "./components/private routes/PrivateFriendRoutes";
+import PrivateFriendRoutes from "./components/privateroutes/PrivateFriendRoutes";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route index={true} path="/" element={<HomeScreen />} />
-      <Route exact strict path="login" element={<LoginScreen />} />
-      <Route exact strict path="register" element={<RegisterScreen />} />
+      <Route index={true} path="/" element={<AuthScreen />} />
+      <Route path="login" element={<LoginScreen />} />
+      <Route path="register" element={<RegisterScreen />} />
       {/* Private Routes */}
-
       <Route path="/" element={<PrivateUserRoute />}>
-        <Route exact strict path="/profile" element={<ProfileScreen />} />
-        <Route exact strict path="/search" element={<SearchScreen />} />
+        <Route path="/home" element={<HomeScreen />} />
+        <Route path="/profile" element={<ProfileScreen />} />
+        <Route path="/search" element={<SearchScreen />} />
         <Route path="/games">
           <Route index={true} element={<GamesScreen />} />
           <Route path=":username" element={<PrivateRatingRoute />}>
@@ -46,9 +48,6 @@ const router = createBrowserRouter(
           </Route>
         </Route>
       </Route>
-      {/* <Route path="/games/:username" element={<PrivateRatingRoute />}>
-        <Route exact strict path=":_id" element={<ReviewScreen />}></Route>
-      </Route> */}
     </Route>
   )
 );

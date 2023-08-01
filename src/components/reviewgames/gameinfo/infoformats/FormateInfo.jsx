@@ -1,6 +1,6 @@
 import React from "react";
 import InfoContainer from "../components/InfoContainer";
-import { formatInfo, capitalize } from "../utils/Utils";
+import { formatInfo, capitalize } from "../../../../utils/Utils";
 const FormateInfo = ({ info, type, last }) => {
   return (
     <InfoContainer last={last}>

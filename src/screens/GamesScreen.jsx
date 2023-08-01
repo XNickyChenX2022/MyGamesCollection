@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useGetAllGamesQuery } from "../slices/gamesApiSlice";
-import { toast } from "react-toastify";
-import Loading from "../components/Loading";
-import GameCards from "../components/cards/GameCards";
-import { useSelector } from "react-redux";
+import Loading from "../components/loading/Loading";
+import GameCards from "../components/cards/gamecards/GameCards";
 import ScreenContainer from "../components/containers/ScreenContainer";
 import Search from "../components/search/Search";
 import Sort from "../components/sort/Sort";
+import CardSectionContainer from "../components/containers/CardSectionContainer";
 const GamesScreen = () => {
   const { data: gameReviews, isLoading: gamesLoading } = useGetAllGamesQuery();
   const [searchField, setSearchField] = useState("");
@@ -28,7 +27,7 @@ const GamesScreen = () => {
           />
         </div>
         {gamesLoading && <Loading />}
-        <div className="flex flex-wrap w-[244px] sm:w-[488px] md:w-[732px] lg:w-[976px] xl:w-[1220px]">
+        <CardSectionContainer>
           {gamesList &&
             gamesList
               .filter((gameReview) =>
@@ -45,7 +44,7 @@ const GamesScreen = () => {
                   gameInfo={gameReviews.game}
                 />
               ))}
-        </div>
+        </CardSectionContainer>
       </ScreenContainer>
     </>
   );
