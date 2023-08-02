@@ -5,7 +5,7 @@ const HeaderContainer = ({ setProfile, children }) => {
   return (
     <div className="flex justify-around">
       <Link
-        to="/"
+        to="/home"
         className="font-bold text-white"
         onClick={(e) => setProfile(false)}
       >

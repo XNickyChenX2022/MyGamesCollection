@@ -5,13 +5,13 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/MyGamesCollection/",
-  // server: {
-  //   port: 3000,
-  //   proxy: {
-  //     "/api": {
-  //       target: "http://localhost:5000",
-  //       changeOrigin: true,
-  //     },
-  //   },
-  // },
+  server: {
+    port: 3000,
+    proxy: {
+      "/api": {
+        target: "https://rating-app-backend.onrender.com/",
+        changeOrigin: true,
+      },
+    },
+  },
 });

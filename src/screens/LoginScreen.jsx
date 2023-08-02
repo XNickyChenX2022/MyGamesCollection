@@ -57,18 +57,20 @@ const LoginScreen = () => {
           value={password}
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
-        <div className="flex flex-col text-center">
-          {isLoading ? (
-            <Spinner />
-          ) : (
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className=" bg-blue-600 rounded w-6/12 max-w-md min-w-[70px] h-7 min-w-sm min-w-auto text-white mx-auto mb-5"
-            >
-              Login
-            </button>
-          )}
+        <div className="flex flex-col text-center justify-center">
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className=" bg-blue-600 rounded w-6/12 max-w-md min-w-[70px] h-7 min-w-sm min-w-auto text-white mx-auto mb-5 text-center justify-center"
+          >
+            {isLoading ? (
+              <div className="flex flex-1 justify-center">
+                <Spinner />
+              </div>
+            ) : (
+              "Login"
+            )}
+          </button>
 
           <div className="mx-auto text-white">
             New User?{" "}

@@ -89,9 +89,11 @@ const RegisterScreen = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
-        <div className="flex flex-col text-center">
+        <div className="flex flex-col text-center justify-center">
           {isLoading ? (
-            <Spinner />
+            <div className="flex flex-1 justify-center">
+              <Spinner />
+            </div>
           ) : (
             <button
               type="submit"
