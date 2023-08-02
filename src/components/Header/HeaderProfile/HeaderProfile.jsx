@@ -12,7 +12,7 @@ const HeaderProfile = () => {
     setOpenProfile(!OpenProfile);
   };
   return (
-    <HeaderContainer>
+    <HeaderContainer setProfile={setOpenProfile}>
       <div className="flex justify-end">
         <div className="flex cursor-pointer" onClick={toggleProfile}>
           <div className="text-white">{userInfo.username}</div>
