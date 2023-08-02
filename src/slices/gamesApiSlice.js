@@ -70,7 +70,6 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
         method: "PUT",
         body: data,
       }),
-
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data: rating } = await queryFulfilled;

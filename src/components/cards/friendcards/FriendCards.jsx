@@ -32,7 +32,7 @@ const FriendCards = ({ rating, review, gameInfo, children, center }) => {
             onClick={toggleMode}
             state={"review"}
             text="View Review"
-            className="bg-green-500 rounded-b-md"
+            className={`bg-green-500  ${center ? "" : "rounded-b-md"}`}
           />
         </>
       ) : (
@@ -47,7 +47,7 @@ const FriendCards = ({ rating, review, gameInfo, children, center }) => {
               onClick={toggleMode}
               state={"image"}
               text="View Image"
-              className="bg-red-500 rounded-b-md"
+              className={`bg-red-500  ${center ? "" : "rounded-b-md"}`}
             />
           </>
         )

@@ -6,7 +6,7 @@ const Companies = ({ info, type }) => {
     <InfoContainer>
       {capitalize(type)}
       {": "}
-      {formatCompanies(info, type)}
+      {info.length !== 0 ? formatCompanies(info, type) : "None"}
     </InfoContainer>
   );
 };

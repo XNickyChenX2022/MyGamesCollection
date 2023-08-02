@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const Review = ({ gameReview }) => {
   const [toggleReview, setToggleReview] = useState(false);
   const [textareaValue, setTextareaValue] = useState(gameReview.review);
-  const [reviewGame] = useReviewGameMutation();
+  const [reviewGame, { isLoading: loadingChange }] = useReviewGameMutation();
   const handleToggleReview = (e) => {
     e.preventDefault();
     setToggleReview(!toggleReview);

@@ -1,16 +1,13 @@
 import react from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Image from "../../image/Image";
-import RatingContainer from "../components/RatingContainer";
-import CardContainer from "../components/CardContainer";
 import GameCardContainer from "../friendcards/FriendCards";
-const GameCards = ({ _id, rating, gameInfo }) => {
+const GameCards = ({ _id, rating, gameInfo, review }) => {
   const { userInfo } = useSelector((state) => state.auth);
   return (
     <GameCardContainer
       rating={rating}
-      review={gameInfo.review}
+      review={review}
       gameInfo={gameInfo}
       center={true}
     >

@@ -11,7 +11,6 @@ const GamesScreen = () => {
   const { data: gameReviews, isLoading: gamesLoading } = useGetAllGamesQuery();
   const [searchField, setSearchField] = useState("");
   const [gamesList, setGamesList] = useState([]);
-  console.log(gamesList);
   useEffect(() => {
     if (!gamesLoading && gameReviews) {
       setGamesList(gameReviews);
@@ -38,13 +37,15 @@ const GamesScreen = () => {
                   .includes(searchField.toLowerCase())
               )
               .map((gameReviews) => (
-                <GameCards
-                  key={gameReviews._id}
-                  _id={gameReviews._id}
-                  rating={gameReviews.rating}
-                  review={gameReviews.review}
-                  gameInfo={gameReviews.game}
-                />
+                <>
+                  <GameCards
+                    key={gameReviews._id}
+                    _id={gameReviews._id}
+                    rating={gameReviews.rating}
+                    review={gameReviews.review}
+                    gameInfo={gameReviews.game}
+                  />
+                </>
               ))}
         </CardSectionContainer>
       </ScreenContainer>
