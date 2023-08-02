@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: "/Rating-App-Frontend/",
   server: {
-    port: 3000,
+    // port: 3000,
     proxy: {
       "/api": {
         target: "https://rating-app-backend.onrender.com",
