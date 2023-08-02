@@ -51,7 +51,7 @@ const router = createBrowserRouter(
       </Route>
     </Route>
   ),
-  { basename: "/Rating-App-Frontend/" }
+  { basename: "/MyGamesList/" }
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
