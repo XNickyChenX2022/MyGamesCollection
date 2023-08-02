@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
+import { Spinner } from "@material-tailwind/react";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const LoginScreen = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [login] = useLoginMutation();
+  const [login, { isLoading: isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -57,13 +58,18 @@ const LoginScreen = () => {
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <div className="flex flex-col text-center">
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className=" bg-blue-600 rounded w-6/12 max-w-md min-w-[70px] h-7 min-w-sm min-w-auto text-white mx-auto mb-5"
-          >
-            Login
-          </button>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className=" bg-blue-600 rounded w-6/12 max-w-md min-w-[70px] h-7 min-w-sm min-w-auto text-white mx-auto mb-5"
+            >
+              Login
+            </button>
+          )}
+
           <div className="mx-auto text-white">
             New User?{" "}
             <Link to="/register" className="text-blue-500 hover:text-blue-700">
