@@ -5,7 +5,7 @@ import Loading from "../components/loading/Loading";
 import ScreenContainer from "../components/containers/ScreenContainer";
 import GameReview from "../components/reviewgames/gamereview/GameReview";
 import GameInfo from "../components/reviewgames/gameinfo/GameInfo";
-import GameImage from "../components/reviewgames/gameImage/GameImage";
+import GameImage from "../components/reviewgames/gameimage/GameImage";
 import BackArrow from "../components/backarrow/BackArrow";
 
 const ReviewScreen = () => {
