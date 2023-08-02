@@ -5,7 +5,6 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   const { userInfo } = useSelector((state) => state.auth);
-
   return (
     <div className="bg-[#121212] w-screen bg-center bg-fixed h-full min-h-screen flex flex-col">
       <Header />
