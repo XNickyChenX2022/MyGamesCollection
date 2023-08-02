@@ -9,6 +9,7 @@ import SearchCards from "../components/cards/searchcards/SearchCards";
 import ScreenContainer from "../components/containers/ScreenContainer";
 import Search from "../components/search/Search";
 import CardSectionContainer from "../components/containers/CardSectionContainer";
+
 const SearchScreen = () => {
   const [searchField, setSearchField] = useState("");
   const [searchGames, { data: searchData, isLoading: searchLoading }] =

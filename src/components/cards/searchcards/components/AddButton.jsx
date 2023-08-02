@@ -3,6 +3,7 @@ import {
   useAddGameMutation,
   useRemoveGameMutation,
 } from "../../../../slices/gamesApiSlice";
+import { toast } from "react-toastify";
 const AddButton = ({ added, _id }) => {
   const addToCollection = async (e, _id) => {
     e.preventDefault();

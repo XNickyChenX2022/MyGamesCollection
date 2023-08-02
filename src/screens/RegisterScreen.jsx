@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
+
 const RegisterScreen = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -40,7 +41,6 @@ const RegisterScreen = () => {
           password,
         }).unwrap();
         dispatch(setCredentials({ ...res }));
-        console.log("this");
         navigate("/home");
       } catch (error) {
         toast.error(error);

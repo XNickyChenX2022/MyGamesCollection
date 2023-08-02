@@ -10,6 +10,7 @@ const GameInfo = ({ gameInfo }) => {
         <div className="font-sans scrollbar-small md:w-[360px] md:h-[480px] w-[240px] h-[320px] mx-auto p-1 whitespace-break-spaces overflow-y-auto overflow-x-hidden break-words text-white justify-center">
           <Companies info={gameInfo.involved_companies} type="developer" />
           <Companies info={gameInfo.involved_companies} type="publisher" />
+          <FormateInfo info={gameInfo} type="genres" />
           <FormateInfo info={gameInfo} type="platforms" />
           <FormateInfo info={gameInfo} type="dlcs" />
           <FormateInfo info={gameInfo} type="expansions" />

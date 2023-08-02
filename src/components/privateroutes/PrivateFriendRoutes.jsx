@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate, Outlet, useParams } from "react-router-dom";
 import { useGetFriendsQuery } from "../../slices/friendsApiSlice";
 import Loading from "../loading/Loading";
+
 const PrivateFriendRoutes = () => {
   const { username } = useParams();
   const { data: friendList, isLoading: loadingFriends } = useGetFriendsQuery();

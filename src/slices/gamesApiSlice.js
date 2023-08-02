@@ -54,7 +54,6 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
               "getAllGames",
               undefined,
               (draft) => {
-                // console.log(JSON.parse(JSON.stringify(draft)));
                 return draft?.filter((games) => games?.game?._id !== args._id);
               }
             )
@@ -80,12 +79,10 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
               "getAllGames",
               undefined,
               (draft) => {
-                // console.log(JSON.parse(JSON.stringify(draft)));
                 let gameReview = draft?.find(
                   (draftItem) => draftItem?._id === args?._id
                 );
                 gameReview.rating = rating;
-                // console.log(JSON.parse(JSON.stringify(gameRating)));
               }
             )
           );
@@ -104,7 +101,6 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data: newReview } = await queryFulfilled;
-          console.log(newReview);
           dispatch(
             gamesApiSlice.util.updateQueryData(
               "getAllGames",
@@ -113,7 +109,6 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
                 let gameReview = draft?.find(
                   (draftItem) => draftItem?._id === args?._id
                 );
-                console.log(JSON.parse(JSON.stringify(gameReview)));
                 gameReview.review = newReview;
               }
             )
@@ -134,4 +129,5 @@ export const {
   useRemoveGameMutation,
   useRateGameMutation,
   useReviewGameMutation,
+  usePrefetch,
 } = gamesApiSlice;

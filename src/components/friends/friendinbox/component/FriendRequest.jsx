@@ -5,6 +5,7 @@ import { useRespondFriendRequestMutation } from "../../../../slices/friendsApiSl
 import { toast } from "react-toastify";
 import { Spinner } from "@material-tailwind/react";
 import FriendItem from "../../components/FriendItem";
+
 const FriendRequest = ({ username }) => {
   const [respondFriendRequest, { isLoading: loadingResponse }] =
     useRespondFriendRequestMutation();

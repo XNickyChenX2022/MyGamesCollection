@@ -4,6 +4,7 @@ import CardContainer from "../components/CardContainer";
 import ToggleButton from "../components/toggleButton";
 import AddButton from "./components/AddButton";
 import CardInfo from "../components/CardInfo";
+
 const SearchCards = ({ _id, cover, name, added, gameInfo }) => {
   const [mode, setMode] = useState("image");
   const toggleMode = (e, mode) => {

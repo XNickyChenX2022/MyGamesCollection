@@ -8,11 +8,11 @@ import Search from "../components/search/Search";
 import Sort from "../components/sort/Sort";
 import BackArrow from "../components/backarrow/BackArrow";
 import CardSectionContainer from "../components/containers/CardSectionContainer";
+
 const FriendGamesScreen = () => {
   const { username } = useParams();
   const { data: friendGames, isLoading: gamesLoading } =
     useGetFriendGamesQuery(username);
-  console.log(friendGames);
   const [searchField, setSearchField] = useState("");
   const [gamesList, setGamesList] = useState([]);
   useEffect(() => {
@@ -20,7 +20,6 @@ const FriendGamesScreen = () => {
       setGamesList(friendGames.gameReviews);
     }
   }, [friendGames, gamesLoading]);
-  console.log(gamesList);
   return (
     <>
       <ScreenContainer>
@@ -37,7 +36,6 @@ const FriendGamesScreen = () => {
                 searchField={searchField}
                 setSearchField={setSearchField}
               />
-
               <Sort
                 gameReviews={friendGames.gameReviews}
                 gamesList={gamesList}

@@ -4,6 +4,7 @@ import FriendRequest from "./component/FriendRequest";
 import FriendsContainer from "../../friends/components/FriendsContainer";
 import SpinnerFriendList from "../components/SpinnerFriendList";
 import SearchList from "../components/SearchList";
+
 const FriendList = () => {
   const { data: friendRequests, isLoading: loadingFriends } =
     useGetFriendRequestsQuery();

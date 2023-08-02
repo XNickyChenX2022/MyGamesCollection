@@ -1,4 +1,4 @@
-import react, { useEffect } from "react";
+import react from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Image from "../../image/Image";

@@ -29,7 +29,6 @@ export const friendsApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(args, { dispatch, queryFulfilled }) {
         try {
           const { data: response } = await queryFulfilled;
-          console.log("response", response);
           if (args.response === true) {
             dispatch(
               friendsApiSlice.util.updateQueryData(
@@ -46,7 +45,6 @@ export const friendsApiSlice = apiSlice.injectEndpoints({
               "getFriendRequests",
               undefined,
               (draft) => {
-                console.log(JSON.parse(JSON.stringify(draft)));
                 return draft.filter(
                   (friendRequest) =>
                     friendRequest.sender.username != args.senderUsername
@@ -69,4 +67,6 @@ export const {
   useGetFriendGamesQuery,
   useSendFriendRequestMutation,
   useRespondFriendRequestMutation,
+  usePrefetch,
 } = friendsApiSlice;
+

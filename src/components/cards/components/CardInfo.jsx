@@ -7,6 +7,7 @@ const CardInfo = ({ gameInfo }) => {
     <CardInfoDisplayContainer>
       <Companies info={gameInfo.involved_companies} type="developer" />
       <Companies info={gameInfo.involved_companies} type="publisher" />
+      <FormateInfo info={gameInfo} type="genres" />
       <FormateInfo info={gameInfo} type="platforms" />
       <FormateInfo info={gameInfo} type="dlcs" />
       <FormateInfo info={gameInfo} type="expansions" />

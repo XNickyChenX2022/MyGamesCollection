@@ -2,6 +2,7 @@ import FriendInbox from "../components/friends/friendinbox/FriendInbox";
 import FriendSearch from "../components/friends/friendsearch/FriendSearch";
 import FriendList from "../components/friends/friendlist/FriendList";
 import ScreenContainer from "../components/containers/ScreenContainer";
+
 const FriendScreen = () => {
   return (
     <ScreenContainer>

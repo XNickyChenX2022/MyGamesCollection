@@ -2,6 +2,7 @@ import React from "react";
 import { IoLogoGameControllerB } from "react-icons/io";
 import FriendItem from "../../components/FriendItem";
 import { Link } from "react-router-dom";
+
 const Friend = ({ username }) => {
   return (
     <FriendItem username={username}>

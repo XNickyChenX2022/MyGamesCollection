@@ -6,10 +6,12 @@ import ScreenContainer from "../components/containers/ScreenContainer";
 import Search from "../components/search/Search";
 import Sort from "../components/sort/Sort";
 import CardSectionContainer from "../components/containers/CardSectionContainer";
+
 const GamesScreen = () => {
   const { data: gameReviews, isLoading: gamesLoading } = useGetAllGamesQuery();
   const [searchField, setSearchField] = useState("");
   const [gamesList, setGamesList] = useState([]);
+  console.log(gamesList);
   useEffect(() => {
     if (!gamesLoading && gameReviews) {
       setGamesList(gameReviews);

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+
 const AuthScreen = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const navigate = useNavigate();

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import HeaderContainer from "../components/HeaderContainer";
+
 const HeaderProfile = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const [OpenProfile, setOpenProfile] = useState(false);

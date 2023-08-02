@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSendFriendRequestMutation } from "../../../slices/friendsApiSlice";
 import { toast } from "react-toastify";
 import { Spinner } from "@material-tailwind/react";
+
 const FriendSearch = () => {
   const [
     sendFriendRequest,
@@ -15,10 +16,9 @@ const FriendSearch = () => {
       return;
     }
     try {
-      console.log({ receiverName: receiverName });
       await sendFriendRequest({ receiverName: receiverName }).unwrap();
+      toast.success(`successfully sent friend request to ${receiverName}`);
       setReceiverName("");
-      toast.success(friendRequestResponse);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }

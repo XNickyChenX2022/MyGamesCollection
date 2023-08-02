@@ -1,4 +1,5 @@
 import React from "react";
+
 const FriendsContainers = ({ title, children }) => {
   return (
     <div className="bg-gray-600 w-[240px] h-[360px] rounded border-[#121212] border-x-2">

@@ -2,6 +2,7 @@ import React from "react";
 import GamesBackgroundContainer from "../components/GamesBackgroundContainer";
 import GamesHeaderContainer from "../components/GamesHeaderContainer";
 import Image from "../../image/Image";
+
 const GameImage = ({ image_id, gameName }) => {
   return (
     <>

@@ -23,10 +23,11 @@ import ReviewScreen from "./screens/ReviewScreen";
 import FriendScreen from "./screens/FriendScreen";
 import FriendGamesScreen from "./screens/FriendGamesScreen";
 import PrivateFriendRoutes from "./components/privateroutes/PrivateFriendRoutes";
-
+import ErrorScreen from "./screens/ErrorScreen";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
+      <Route path="*" element={<ErrorScreen />} />
       <Route index={true} path="/" element={<AuthScreen />} />
       <Route path="login" element={<LoginScreen />} />
       <Route path="register" element={<RegisterScreen />} />

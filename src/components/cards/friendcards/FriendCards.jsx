@@ -4,6 +4,7 @@ import CardContainer from "../components/CardContainer";
 import ToggleButton from "../components/toggleButton";
 import RatingContainer from "../components/RatingContainer";
 import CardInfoDisplayContainer from "../components/CardInfoDisplayContainer";
+import CardInfo from "../components/CardInfo";
 const FriendCards = ({ rating, review, gameInfo, children, center }) => {
   const [mode, setMode] = useState("image");
   const toggleMode = (e, mode) => {
