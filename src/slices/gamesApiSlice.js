@@ -1,6 +1,6 @@
 import { apiSlice } from "./apiSlice";
 
-const BASE_URL = "/api/games";
+const BASE_URL = "https://rating-app-backend.onrender.com/api/games";
 
 export const gamesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

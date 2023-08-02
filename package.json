@@ -3,7 +3,7 @@
   "private": false,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://xnickychenx2022.github.io/Rating-App-Frontend/",
+  "homepage": "https://xnickychenx2022.github.io/MyGamesList/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
