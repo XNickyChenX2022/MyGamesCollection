@@ -50,7 +50,8 @@ const router = createBrowserRouter(
         </Route>
       </Route>
     </Route>
-  )
+  ),
+  { basename: "/Rating-App-Frontend/" }
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
