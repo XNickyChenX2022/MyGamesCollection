@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "../../image/Image";
 import CardContainer from "../components/CardContainer";
-import ToggleButton from "../components/toggleButton";
+import ToggleButton from "../components/ToggleButton";
 import AddButton from "./components/AddButton";
 import CardInfo from "../components/CardInfo";
 
