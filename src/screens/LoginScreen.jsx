@@ -36,11 +36,12 @@ const LoginScreen = () => {
         Login
       </div>
       <form
+        autoComplete="new-password"
         spellCheck="false"
         className="flex flex-col flex-1 justify-evenly content-center mb-5"
       >
         <input
-          autoComplete="do-not-autofill"
+          autoComplete="new-password"
           type="email"
           placeholder="Email"
           value={email}
@@ -48,6 +49,7 @@ const LoginScreen = () => {
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <input
+          autoComplete="new-password"
           type="password"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}

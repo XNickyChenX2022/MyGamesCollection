@@ -57,7 +57,7 @@ const RegisterScreen = () => {
         className="flex flex-col flex-1 justify-evenly content-center text-white mb-5"
       >
         <input
-          autoComplete="off"
+          autoComplete="new-password"
           type="text"
           placeholder="Username"
           value={username}
@@ -65,7 +65,7 @@ const RegisterScreen = () => {
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <input
-          autoComplete="do-not-autofill"
+          autoComplete="new-password"
           type="email"
           placeholder="Email"
           value={email}
@@ -73,6 +73,7 @@ const RegisterScreen = () => {
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <input
+          autoComplete="new-password"
           type="password"
           placeholder="Password"
           value={password}
@@ -80,6 +81,7 @@ const RegisterScreen = () => {
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <input
+          autoComplete="new-password"
           type="password"
           placeholder="Confirm Password"
           value={confirmPassword}
