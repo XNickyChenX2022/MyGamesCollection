@@ -51,7 +51,7 @@ const router = createBrowserRouter(
       </Route>
     </Route>
   ),
-  { basename: "/MyGamesList/" }
+  { basename: "/MyGamesCollection/" }
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
