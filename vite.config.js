@@ -9,7 +9,7 @@ export default defineConfig({
     // port: 3000,
     proxy: {
       "/api": {
-        target: "https://rating-app-backend.onrender.com",
+        target: "https://rating-app-backend.onrender.com/api",
         changeOrigin: true,
       },
     },
