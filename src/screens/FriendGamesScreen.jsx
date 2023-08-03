@@ -16,8 +16,8 @@ const FriendGamesScreen = () => {
   const [searchField, setSearchField] = useState("");
   const [gamesList, setGamesList] = useState([]);
   useEffect(() => {
-    if (!gamesLoading && friendGames.gameReviews) {
-      setGamesList(friendGames.gameReviews);
+    if (!gamesLoading && friendGames && friendGames?.gameReviews) {
+      setGamesList(friendGames?.gameReviews);
     }
   }, [friendGames, gamesLoading]);
   return (
@@ -30,14 +30,14 @@ const FriendGamesScreen = () => {
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-center">
-          {friendGames && (
+          {gamesList && (
             <>
               <Search
                 searchField={searchField}
                 setSearchField={setSearchField}
               />
               <Sort
-                gameReviews={friendGames.gameReviews}
+                gameReviews={friendGames?.gameReviews}
                 gamesList={gamesList}
                 setGamesList={setGamesList}
               />
