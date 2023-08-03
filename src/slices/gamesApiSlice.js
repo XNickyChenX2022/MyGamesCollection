@@ -5,19 +5,19 @@ const BASE_URL = "https://rating-app-backend.onrender.com/api/games";
 export const gamesApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllGames: builder.query({
-      query: () => `${BASE_URL}`,
+      query: () => "/games",
       providesTags: ["Games"],
     }),
     searchGames: builder.mutation({
       query: (data) => ({
-        url: `${BASE_URL}/search`,
+        url: "/games/search",
         method: "POST",
         body: data,
       }),
     }),
     addGame: builder.mutation({
       query: (data) => ({
-        url: `${BASE_URL}`,
+        url: "/games",
         method: "POST",
         body: data,
       }),
@@ -41,7 +41,7 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
     }),
     removeGame: builder.mutation({
       query: (data) => ({
-        url: `${BASE_URL}`,
+        url: "/games",
         method: "DELETE",
         body: data,
       }),
