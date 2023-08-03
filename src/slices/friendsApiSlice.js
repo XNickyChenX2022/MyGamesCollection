@@ -1,5 +1,5 @@
 import { apiSlice } from "./apiSlice";
-const BASE_URL = "https://rating-app-backend.onrender.com/api/friends";
+const BASE_URL = "/friends";
 export const friendsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getFriends: builder.query({
