@@ -12,7 +12,7 @@ const ProfileScreen = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const dispatch = useDispatch();
-  const [updateProfile] = useUpdateUserMutation();
+  const [updateProfile, { isLoading: isLoading }] = useUpdateUserMutation();
   const { userInfo } = useSelector((state) => state.auth);
   useEffect(() => {
     setUsername(userInfo.username);
