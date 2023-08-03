@@ -5,7 +5,7 @@ import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
 import { useUpdateUserMutation } from "../slices/usersApiSlice";
 import InputContainer from "../components/containers/InputContainer";
-
+import { Spinner } from "@material-tailwind/react";
 const ProfileScreen = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
