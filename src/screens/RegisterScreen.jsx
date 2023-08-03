@@ -14,8 +14,8 @@ const RegisterScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { userInfo, isLoading: isLoading } = useSelector((state) => state.auth);
-  const [register] = useRegisterMutation();
+  const { userInfo } = useSelector((state) => state.auth);
+  const [register, { isLoading: isLoading }] = useRegisterMutation();
   useEffect(() => {
     if (userInfo) {
       navigate("home");
