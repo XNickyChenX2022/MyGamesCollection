@@ -3,10 +3,11 @@ import { FaEdit, FaSave } from "react-icons/fa";
 import { ImCancelCircle } from "react-icons/im";
 import { useReviewGameMutation } from "../../../../slices/gamesApiSlice";
 import { toast } from "react-toastify";
+import { Spinner } from "@material-tailwind/react";
 const Review = ({ gameReview }) => {
   const [toggleReview, setToggleReview] = useState(false);
   const [textareaValue, setTextareaValue] = useState(gameReview.review);
-  const [reviewGame, { isLoading: loadingChange }] = useReviewGameMutation();
+  const [reviewGame, { isLoading: isLoading }] = useReviewGameMutation();
   const handleToggleReview = (e) => {
     e.preventDefault();
     setToggleReview(!toggleReview);
@@ -39,10 +40,14 @@ const Review = ({ gameReview }) => {
         </div>
         {toggleReview ? (
           <div className="flex">
-            <FaSave
-              className=" text-white w-8 h-8 p-1 cursor-pointer hover:text-blue-500"
-              onClick={submitReview}
-            />
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <FaSave
+                className=" text-white w-8 h-8 p-1 cursor-pointer hover:text-blue-500"
+                onClick={submitReview}
+              />
+            )}
             <ImCancelCircle
               className="text-white text-3xl w-8 h-8 p-1 cursor-pointer hover:text-blue-500"
               onClick={handleToggleReview}

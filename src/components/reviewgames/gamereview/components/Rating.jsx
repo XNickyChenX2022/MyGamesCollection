@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useRateGameMutation } from "../../../../slices/gamesApiSlice";
+import { Spinner } from "@material-tailwind/react";
 
 const Rating = ({ gameReview }) => {
   const [rating, setRating] = useState("");
-  const [rateGame] = useRateGameMutation();
+  const [rateGame, { isLoading: isLoading }] = useRateGameMutation();
   const handleInputChange = (e) => {
     const { value } = e.target;
     if (isNaN(value)) {
@@ -67,7 +68,13 @@ const Rating = ({ gameReview }) => {
             type="submit"
             className="text-white bg-blue-500 rounded-r shadow-sm p-1"
           >
-            Update
+            {isLoading ? (
+              <div className="flex flex-1 justify-center">
+                <Spinner />
+              </div>
+            ) : (
+              "Update"
+            )}
           </button>
         </form>
       </div>
