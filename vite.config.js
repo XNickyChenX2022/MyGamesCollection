@@ -7,11 +7,11 @@ export default defineConfig({
   base: "/MyGamesCollection/",
   server: {
     port: 3000,
-    proxy: {
-      "/api": {
-        target: "https://rating-app-backend.onrender.com/",
-        changeOrigin: true,
-      },
-    },
+    // proxy: {
+    //   "/api": {
+    //     target: "https://rating-app-backend.onrender.com/",
+    //     changeOrigin: true,
+    //   },
+    // },
   },
 });
