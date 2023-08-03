@@ -1,28 +1,28 @@
 import { apiSlice } from "./apiSlice";
-const BASE_URL = "/friends";
+
 export const friendsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getFriends: builder.query({
-      query: () => `${BASE_URL}`,
+      query: () => "/friends",
       providesTags: ["Friends"],
     }),
     getFriendRequests: builder.query({
-      query: () => `${BASE_URL}/requests`,
+      query: () => "/friends/requests",
       providesTags: ["FriendRequests"],
     }),
     getFriendGames: builder.query({
-      query: (username) => `${BASE_URL}/${username}`,
+      query: (username) => "/friends/${username}",
     }),
     sendFriendRequest: builder.mutation({
       query: (data) => ({
-        url: `${BASE_URL}`,
+        url: "/friends",
         method: "POST",
         body: data,
       }),
     }),
     respondFriendRequest: builder.mutation({
       query: (data) => ({
-        url: `${BASE_URL}/respond`,
+        url: "/friends/respond",
         method: "POST",
         body: data,
       }),

@@ -90,20 +90,19 @@ const RegisterScreen = () => {
           className="bg-gray-600 border-b-2 border-black outline-0 text-white"
         />
         <div className="flex flex-col text-center justify-center">
-          {isLoading ? (
-            <div className="flex flex-1 justify-center">
-              <Spinner />
-            </div>
-          ) : (
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className=" bg-blue-600 rounded w-6/12 max-w-md min-w-[70px] h-7 min-w-sm min-w-auto text-white mx-auto mb-5"
-            >
-              Register
-            </button>
-          )}
-
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className=" bg-blue-600 rounded w-6/12 max-w-md min-w-[70px] h-7 min-w-sm min-w-auto text-white mx-auto mb-5"
+          >
+            {isLoading ? (
+              <div className="flex flex-1 justify-center">
+                <Spinner />
+              </div>
+            ) : (
+              "Register"
+            )}
+          </button>
           <div className="mx-auto text-white">
             Already have an account?{" "}
             <Link to="/login" className="text-blue-500 hover:text-blue-700">

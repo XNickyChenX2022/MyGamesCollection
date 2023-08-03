@@ -64,7 +64,7 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
     }),
     rateGame: builder.mutation({
       query: (data) => ({
-        url: `${BASE_URL}/rate`,
+        url: "/games/rate",
         method: "PUT",
         body: data,
       }),
@@ -91,7 +91,7 @@ export const gamesApiSlice = apiSlice.injectEndpoints({
     }),
     reviewGame: builder.mutation({
       query: (data) => ({
-        url: `${BASE_URL}/review`,
+        url: "/games/review",
         method: "PUT",
         body: data,
       }),

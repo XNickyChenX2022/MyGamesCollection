@@ -23,10 +23,6 @@ const FriendList = () => {
               .map((request) => (
                 <Friend key={request._id} username={request.username} />
               ))}
-          {/* {friendList &&
-          friendList.map((friend) => (
-            <Friend key={friend._id} username={friend.username} />
-          ))} */}
         </div>
       </FriendsContainer>
     </>
