@@ -49,7 +49,7 @@ const ProfileScreen = () => {
   return (
     <FormContainer>
       <div className="font-semibold text-center text-2xl text-white mt-5">
-        Update
+        Update Profile
       </div>
       <form className="flex flex-col flex-1 justify-evenly content-center text-white mb-2">
         <InputContainer
@@ -86,7 +86,13 @@ const ProfileScreen = () => {
             onClick={handleSubmit}
             className=" bg-blue-600 rounded w-6/12 max-w-md min-w-[70px] h-7 min-w-sm min-w-auto text-white mx-auto"
           >
-            Update
+            {isLoading ? (
+              <div className="flex flex-1 justify-center">
+                <Spinner />
+              </div>
+            ) : (
+              "Update"
+            )}
           </button>
         </div>
       </form>
