@@ -28,7 +28,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="*" element={<ErrorScreen />} />
-      <Route index={true} path="/" element={<AuthScreen />} />
+      <Route index={true} element={<AuthScreen />} />
       <Route path="login" element={<LoginScreen />} />
       <Route path="register" element={<RegisterScreen />} />
       {/* Private Routes */}

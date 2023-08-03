@@ -4,7 +4,7 @@ import React from "react";
 
 const PrivateUserRoute = () => {
   const { userInfo } = useSelector((state) => state.auth);
-  return userInfo ? <Outlet /> : <Navigate to="/login" replace />;
+  return userInfo ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default PrivateUserRoute;
