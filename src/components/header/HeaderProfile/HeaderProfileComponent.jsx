@@ -14,7 +14,7 @@ const HeaderProfileComponent = ({ handleClick }) => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      navigate("/");
+      navigate("/auth");
     } catch (error) {
       console.log(error);
     }
