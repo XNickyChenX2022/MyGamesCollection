@@ -41,7 +41,7 @@ const Review = ({ gameReview }) => {
         {toggleReview ? (
           <div className="flex">
             {isLoading ? (
-              <Spinner />
+              <Spinner className=" w-8 h-8 p-1 " />
             ) : (
               <FaSave
                 className=" text-white w-8 h-8 p-1 cursor-pointer hover:text-blue-500"
