@@ -16,8 +16,8 @@ const FriendGamesScreen = () => {
   const [searchField, setSearchField] = useState("");
   const [gamesList, setGamesList] = useState([]);
   useEffect(() => {
-    if (!gamesLoading && friendGames && friendGames?.gameReviews) {
-      setGamesList(friendGames?.gameReviews);
+    if (!gamesLoading && friendGames?.gameReviews) {
+      setGamesList(friendGames.gameReviews);
     }
   }, [friendGames, gamesLoading]);
   return (
