@@ -11,7 +11,7 @@ export const friendsApiSlice = apiSlice.injectEndpoints({
       providesTags: ["FriendRequests"],
     }),
     getFriendGames: builder.query({
-      query: (username) => "/friends/${username}",
+      query: (username) => `/friends/${username}`,
     }),
     sendFriendRequest: builder.mutation({
       query: (data) => ({
