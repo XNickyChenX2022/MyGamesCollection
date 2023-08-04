@@ -4,7 +4,7 @@ Welcome to MyGamesCollection (MGC), a place where you can search to find your fa
 # II. Background
 * This is the frontend repository for MyGamesCollection.   
 * For the backend repository, use this link: https://github.com/XNickyChenX2022/Rating-App-Backend
-* For the website, use this link:https://xnickychenx2022.github.io/MyGamesCollection/
+* For the website, use this link: https://xnickychenx2022.github.io/MyGamesCollection/
 * Frontend Technologies: React, Redux-Toolkit, Tailwind CSS
 * Frontend hosted on: GitHub Pages
 * Backend Technologies: MongoDB, Mongoose, Node.js, Express.js, Redis 
