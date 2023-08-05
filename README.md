@@ -26,7 +26,7 @@ Welcome to MyGamesCollection (MGC), a place where you can search to find your fa
 * Implements React-Router-Dom including private routing, which prevents access to routes that require user authentication, and routes that are only accessible between friends.
 * automatically redirects users to default route if not logged in.
 # IV. Backend
-* see https://github.com/XNickyChenX2022/MyGamesCollection
+* see https://github.com/XNickyChenX2022/Rating-App-Backend
 # V. Motivation
 The motivation of the project is the fact that I have been always been interested in video games and was always interested in discussing and ranking games. But it was always inconvenient when one forgot what it felt like to be playing a game at that very moment. Of course, one can write that in google sheets for instance, but that also comes with organizing issues and just does not look appealing. So this application solves that issue by using React and Tailwind to build out appealing website that can have individuals sort and search games. The goal of this project was never to replicate a game review website such as Metacritic, but rather to personalize it between you and your friends. I also found that it was easier to communicate the thoughts of your games when individuals could do it on their own time and then discuss it later when both individuals has a understanding of each other's point of view.
 # VI. What did I learn?
