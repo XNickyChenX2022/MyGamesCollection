@@ -11,7 +11,7 @@ Welcome to MyGamesCollection (MGC), a place where you can search to find your fa
 * Backend hosted on: Render
 * All game data is provided by IGDB games.
 # III. MyGamesCollection Overview
-* MGC includes the following pages:
+MGC includes the following pages:
   * default (sends users to login/register)
   * login
   * register
