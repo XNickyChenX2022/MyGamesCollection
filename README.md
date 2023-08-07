@@ -12,14 +12,14 @@ Welcome to MyGamesCollection (MGC), a place where you can search to find your fa
 * All game data is provided by IGDB games.
 # III. MyGamesCollection Overview
 MGC includes the following pages:
-  * default (sends users to login/register)
-  * login
-  * register
-  * home (instructions page on how to use the website
-  * search games (search games from a database to add or remove from your collection)
-  * my games (rate and review user's collection of games)
-  * friends (send friend requests to users and view friend's collection of games)
-  * profile (edit username, password, email)
+* default (sends users to login/register)
+* login
+* register
+* home (instructions page on how to use the website
+* search games (search games from a database to add or remove from your collection)
+* my games (rate and review user's collection of games)
+* friends (send friend requests to users and view friend's collection of games)
+* profile (edit username, password, email)
 # III. Frontend
 * Redux Toolkit stores user data in local storage 
 * RTK Query makes API calls to the backend, cache the data on the client and manually updating that data via pessimistic update to avoid constantly calling the backend API to fetch data
