@@ -43,8 +43,9 @@ const RegisterScreen = () => {
         }).unwrap();
         dispatch(setCredentials({ ...res }));
         navigate("home");
-      } catch (error) {
-        toast.error(error);
+      } catch (err) {
+        console.log(error);
+        toast.error(err?.data?.message || err.error);
       }
     }
   };
