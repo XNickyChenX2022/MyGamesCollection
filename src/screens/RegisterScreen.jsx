@@ -44,7 +44,6 @@ const RegisterScreen = () => {
         dispatch(setCredentials({ ...res }));
         navigate("home");
       } catch (err) {
-        console.log(error);
         toast.error(err?.data?.message || err.error);
       }
     }
