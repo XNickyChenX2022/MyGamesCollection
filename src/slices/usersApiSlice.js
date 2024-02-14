@@ -21,10 +21,11 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         url: "/users/logout",
         method: "POST",
       }),
+
+      onSuccess: (response, { dispatch }) => {
+        dispatch(apiSlice.util.resetApiState());
+      },
     }),
-    onSuccess: (response, { dispatch }) => {
-      dispatch(apiSlice.util.resetApiState());
-    },
     updateUser: builder.mutation({
       query: (data) => ({
         url: "/users/profile",
