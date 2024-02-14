@@ -22,6 +22,9 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         method: "POST",
       }),
     }),
+    onSuccess: (response, { dispatch }) => {
+      dispatch(apiSlice.util.resetApiState());
+    },
     updateUser: builder.mutation({
       query: (data) => ({
         url: "/users/profile",

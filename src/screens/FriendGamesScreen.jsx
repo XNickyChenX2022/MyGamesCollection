@@ -16,10 +16,11 @@ const FriendGamesScreen = () => {
   const [searchField, setSearchField] = useState("");
   const [gamesList, setGamesList] = useState([]);
   useEffect(() => {
-    if (!gamesLoading && friendGames?.gameReviews) {
-      setGamesList(friendGames.gameReviews);
+    if (!gamesLoading && friendGames) {
+      setGamesList(friendGames);
     }
   }, [friendGames, gamesLoading]);
+  console.log(friendGames);
   return (
     <>
       <ScreenContainer>
@@ -37,7 +38,7 @@ const FriendGamesScreen = () => {
                 setSearchField={setSearchField}
               />
               <Sort
-                gameReviews={friendGames?.gameReviews}
+                gameReviews={friendGames}
                 gamesList={gamesList}
                 setGamesList={setGamesList}
               />
