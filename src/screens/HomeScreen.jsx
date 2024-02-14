@@ -4,9 +4,9 @@ import usePrefetchGames from "../hooks/usePrefetchGames";
 import usePrefetchFriends from "../hooks/usePrefetchFriends";
 
 const HomeScreen = () => {
-  usePrefetchFriendRequests();
-  usePrefetchGames();
-  usePrefetchFriends();
+  // usePrefetchFriendRequests();
+  // usePrefetchGames();
+  // usePrefetchFriends();
   return (
     <div className="flex flex-1 flex-grow justify-center items-center">
       <div className="md:w-[400px] w-screen h-[600px] bg-gray-600 py-3 px-10">

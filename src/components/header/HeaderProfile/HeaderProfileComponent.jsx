@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { logout } from "../../../slices/authSlice";
 import { useDispatch } from "react-redux";
 import HeaderLink from "../components/HeaderLinks";
-
+import { apiSlice } from "../../../slices/apiSlice";
 const HeaderProfileComponent = ({ handleClick }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const HeaderProfileComponent = ({ handleClick }) => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
+      dispatch(apiSlice.util.resetApiState());
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -45,8 +46,7 @@ const HeaderProfileComponent = ({ handleClick }) => {
           />
           <NavLink
             onClick={logoutHandler}
-            className="px-2 text-white hover:text-gray-400"
-          >
+            className="px-2 text-white hover:text-gray-400">
             logout
           </NavLink>
         </div>
